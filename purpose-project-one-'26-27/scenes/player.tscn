@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b8fj21aongq6f"]
+
+[ext_resource type="Script" uid="uid://bn0ipfw134epc" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7i0x0"]
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3vyb7"]
+height = 1.0
+
+[node name="Player" type="CharacterBody3D" unique_id=417787551]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1748221470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_7i0x0")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1673686079]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77497524, -0.42421097)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=2056716733]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1762692245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 3
+mesh = SubResource("CylinderMesh_3vyb7")
