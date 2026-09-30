@@ -21,6 +21,7 @@ func movement_inputs(delta: float) -> void:
 	movement_vector = movement_vector.rotated(-self.rotation.y)
 	velocity = Vector3(movement_vector.x, 0, movement_vector.y)*speed
 	jump(delta)
+	dash(delta)
 	last_velocity = velocity
 	move_and_slide()
 
@@ -31,3 +32,13 @@ func jump(delta: float) -> void:
 		velocity.y = jump_velocity
 	if is_on_ceiling() or velocity.y == 0:
 		velocity.y = get_gravity().y*delta
+
+func dash(delta: float) -> void:
+	if Input.is_action_just_pressed("dash"):
+		velocity = get_direction_vector()*speed*10
+
+func get_direction_vector() -> Vector3:
+	var direction := Vector3(0,0,-1)
+	direction = direction.rotated(Vector3(1,0,0),%CameraPivot.rotation.x)
+	direction = direction.rotated(Vector3(0,1,0),self.rotation.y)
+	return direction

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bxkbr1s1w1hu3"]
+
+[node name="gui" type="Control" unique_id=1015823830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2006982003]
+layout_mode = 0
+offset_right = 584.0
+offset_bottom = 95.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1999679620]
+layout_mode = 0
+offset_left = 270.2727
+offset_top = -417.27274
+offset_right = 854.345
+offset_bottom = -277.27066
+rotation = 0.7853982
