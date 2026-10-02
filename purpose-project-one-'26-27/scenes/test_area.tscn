@@ -22,6 +22,7 @@ data = PackedVector3Array(2.8142998, 2.8363, 7.8466997, -2.8142998, 2.8363, 7.84
 [node name="TestArea" type="Node3D" unique_id=1625202741]
 
 [node name="Player" parent="." unique_id=417787551 instance=ExtResource("1_yldxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0718884, -1.4004438, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1918815377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7278905, 0)
@@ -45,6 +46,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32481384, 0.5802002, -4.63
 mesh = SubResource("BoxMesh_pn7cn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3" unique_id=848392742]
+constant_linear_velocity = Vector3(1, 1, 1)
+constant_angular_velocity = Vector3(1.5707964, 1.5707964, 1.5707964)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D" unique_id=1663794466]
 shape = SubResource("ConcavePolygonShape3D_yldxj")

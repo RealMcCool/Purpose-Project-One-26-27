@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://egv4v1x1lbiu"]
+
+[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_548ah"]
+[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_osu2p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7i0x0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7i5h"]
+
+[node name="Level" type="Node3D" unique_id=987537332]
+
+[node name="Terrain" type="StaticBody3D" parent="." unique_id=1425629007]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain" unique_id=1130010477]
+mesh = SubResource("BoxMesh_7i0x0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=147719801]
+shape = SubResource("BoxShape3D_c7i5h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=329321634]
+environment = ExtResource("1_548ah")
+
+[node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_osu2p")]
