@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bhemyjo3tocme"]
+
+[ext_resource type="Texture2D" uid="uid://c4qybay11mmir" path="res://resources/goal_material_noise_texture.tres" id="1_qh1tt"]
+
+[resource]
+transparency = 4
+albedo_color = Color(1, 0.82949996, 0.06999999, 0.35686275)
+albedo_texture = ExtResource("1_qh1tt")

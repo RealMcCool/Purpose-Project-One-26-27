@@ -1,0 +1,8 @@
+[gd_resource type="NoiseTexture2D" format=3 uid="uid://c4qybay11mmir"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sm5eh"]
+domain_warp_enabled = true
+
+[resource]
+noise = SubResource("FastNoiseLite_sm5eh")
+in_3d_space = true

@@ -1,6 +1,6 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
-@export var walk_speed := 4.0
+@export var walk_speed := 5.0
 @export var dash_speed := 8.0
 @export var jump_velocity := 6.0
 var last_velocity := Vector3.ZERO
@@ -36,11 +36,12 @@ func movement_inputs(delta: float) -> void:
 	velocity = Vector3(last_velocity.x, 0, last_velocity.z)
 	
 	if dashes_left == max_dashes:
-		velocity = velocity.move_toward(Vector3.ZERO,walk_speed)
+		velocity = velocity.move_toward(Vector3.ZERO,walk_speed) # Multiply by delta for better deceleration?
 		velocity += Vector3(movement_vector.x, 0, movement_vector.y)*walk_speed
-		if is_on_floor() and movement_vector == Vector2.ZERO:
-			velocity = Vector3.ZERO
+		#if is_on_floor() and movement_vector == Vector2.ZERO:
+			#velocity = Vector3.ZERO
 		velocity = velocity.limit_length(walk_speed)
+	velocity = velocity.move_toward(Vector3.ZERO,walk_speed*delta)
 	
 	if is_on_floor():
 		dashes_left = max_dashes
@@ -68,8 +69,9 @@ func dash(_delta: float) -> void:
 		velocity.y = dash_velocity.y
 
 
-func get_direction_vector() -> Vector3:
+func get_direction_vector(include_y := true) -> Vector3:
 	var direction := Vector3(0,0,-1)
-	direction = direction.rotated(Vector3(1,0,0),%CameraPivot.rotation.x)
+	if include_y:
+		direction = direction.rotated(Vector3(1,0,0),%CameraPivot.rotation.x)
 	direction = direction.rotated(Vector3(0,1,0),self.rotation.y)
-	return direction
+	return direction.normalized()

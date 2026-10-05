@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="1_yldxj"]
 [ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="2_f0p7x"]
+[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_vtm10"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7i0x0"]
 size = Vector2(100, 100)
@@ -54,3 +55,6 @@ shape = SubResource("ConcavePolygonShape3D_yldxj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1872440492]
 environment = ExtResource("2_f0p7x")
+
+[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_vtm10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.491786, 0, -11.3769655)

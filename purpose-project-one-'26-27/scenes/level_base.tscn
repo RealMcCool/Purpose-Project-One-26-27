@@ -2,6 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_548ah"]
 [ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_osu2p"]
+[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_bkdr1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7i0x0"]
 
@@ -21,3 +22,5 @@ shape = SubResource("BoxShape3D_c7i5h")
 environment = ExtResource("1_548ah")
 
 [node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_osu2p")]
+
+[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_bkdr1")]
