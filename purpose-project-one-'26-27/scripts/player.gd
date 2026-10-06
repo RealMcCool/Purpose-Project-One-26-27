@@ -5,10 +5,11 @@ class_name Player extends CharacterBody3D
 @export var jump_velocity := 6.0
 var last_velocity := Vector3.ZERO
 var max_camera_angle := 80.0
-var mouse_sensitivity := 0.001
+var mouse_sensitivity := 0.055
 var can_dash := true
 @export var max_dashes := 1
 var dashes_left := max_dashes
+var can_move := true
 
 
 func _ready() -> void:
@@ -16,19 +17,24 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	movement_inputs(delta)
+	if can_move:
+		movement_inputs(delta)
+		mouse_inputs(delta)
+
+
+func mouse_inputs(delta: float) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		%CameraPivot.rotation.x += -Input.get_last_mouse_velocity().y * mouse_sensitivity
+		%CameraPivot.rotation.x += -Input.get_last_mouse_velocity().y * mouse_sensitivity * delta
 		if %CameraPivot.rotation_degrees.x <= -max_camera_angle:
 			%CameraPivot.rotation_degrees.x = -max_camera_angle
 		elif %CameraPivot.rotation_degrees.x >= max_camera_angle:
 			%CameraPivot.rotation_degrees.x = max_camera_angle
-		self.rotation.y += -Input.get_last_mouse_velocity().x * mouse_sensitivity
-	
+		self.rotation.y += -Input.get_last_mouse_velocity().x * mouse_sensitivity * delta
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif Input.is_action_just_pressed("ui_select"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 func movement_inputs(delta: float) -> void:
 	var movement_vector = Input.get_vector("left", "right", "forward", "backward").normalized()

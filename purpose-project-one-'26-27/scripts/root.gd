@@ -2,14 +2,14 @@ extends Node
 
 
 func _ready() -> void:
-	for i in get_tree().get_nodes_in_group("goal"):
-		if i.has_signal("goal_reached"):
-			i.goal_reached.connect(_on_goal_reached)
+	connect_goal_signal()
 
 
-func _on_goal_reached(_next_level : String) -> void:
-	print(_next_level)
-	switch_levels(_next_level)
+func _on_goal_reached(next_level : String) -> void:
+	%Level.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	await %GUI.get_node("%AnimationPlayer").animation_finished
+	switch_levels(next_level)
+	%Level.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 
 func switch_levels(new_level : String) -> void:
@@ -18,3 +18,11 @@ func switch_levels(new_level : String) -> void:
 	var level_scene : PackedScene = load(new_level)
 	var level : Node = level_scene.instantiate()
 	%Level.add_child(level)
+	connect_goal_signal()
+
+
+func connect_goal_signal() -> void:
+	for i in get_tree().get_nodes_in_group("goal"):
+		if i.has_signal("goal_reached"):
+			if not i.goal_reached.is_connected(_on_goal_reached):
+				i.goal_reached.connect(_on_goal_reached)

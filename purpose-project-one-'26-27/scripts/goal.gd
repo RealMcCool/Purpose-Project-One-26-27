@@ -7,7 +7,7 @@ signal goal_reached(next_level : String)
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		goal_reached.emit(next_level)
-		#print("Yay")
+		body.can_move = false
 
 
 func _physics_process(delta: float) -> void:

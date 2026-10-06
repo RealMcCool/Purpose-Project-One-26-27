@@ -25,3 +25,6 @@ environment = ExtResource("1_548ah")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_bkdr1")]
+
+[node name="SpawnPosition" type="Marker3D" parent="." unique_id=1308580443]
+unique_name_in_owner = true

@@ -7,7 +7,8 @@
 [node name="Root" type="Node" unique_id=2074764658 groups=["root"]]
 script = ExtResource("1_lrqlo")
 
-[node name="gui" parent="." unique_id=1015823830 instance=ExtResource("1_twpsu")]
+[node name="GUI" parent="." unique_id=1015823830 instance=ExtResource("1_twpsu")]
+unique_name_in_owner = true
 
 [node name="Level" type="Node" parent="." unique_id=1064715952]
 unique_name_in_owner = true
