@@ -30,4 +30,3 @@ cast_shadow = 3
 mesh = SubResource("CylinderMesh_3vyb7")
 
 [node name="gui" parent="." unique_id=1015823830 instance=ExtResource("2_g2els")]
-visible = false

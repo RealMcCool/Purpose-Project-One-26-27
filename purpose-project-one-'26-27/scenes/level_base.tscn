@@ -22,5 +22,6 @@ shape = SubResource("BoxShape3D_c7i5h")
 environment = ExtResource("1_548ah")
 
 [node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_osu2p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_bkdr1")]

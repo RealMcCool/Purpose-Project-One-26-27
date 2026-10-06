@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://yarqw422fvn0"]
+
+[ext_resource type="Script" uid="uid://npjpf04lowhs" path="res://scripts/root.gd" id="1_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://bxkbr1s1w1hu3" path="res://scenes/gui.tscn" id="1_twpsu"]
+[ext_resource type="PackedScene" uid="uid://crs5qyfs8g8kg" path="res://scenes/test_area.tscn" id="3_lrqlo"]
+
+[node name="Root" type="Node" unique_id=2074764658 groups=["root"]]
+script = ExtResource("1_lrqlo")
+
+[node name="gui" parent="." unique_id=1015823830 instance=ExtResource("1_twpsu")]
+
+[node name="Level" type="Node" parent="." unique_id=1064715952]
+unique_name_in_owner = true
+
+[node name="TestArea" parent="Level" unique_id=1625202741 instance=ExtResource("3_lrqlo")]

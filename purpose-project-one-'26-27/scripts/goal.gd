@@ -1,12 +1,12 @@
 extends Area3D
 
-
-signal goal_reached
+@export_file_path var next_level : String
+signal goal_reached(next_level : String)
 
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		goal_reached.emit()
+		goal_reached.emit(next_level)
 		#print("Yay")
 
 

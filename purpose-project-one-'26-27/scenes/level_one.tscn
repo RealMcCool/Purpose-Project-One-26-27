@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cref300uwmmwn"]
+
+[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_843q2"]
+[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_5rfim"]
+[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_r4wdr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pn7cn"]
+size = Vector3(2.616272, 3.466919, 11.244385)
+
+[node name="Level" type="Node3D" unique_id=987537332]
+
+[node name="Terrain" type="StaticBody3D" parent="." unique_id=1425629007]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain" unique_id=2022388566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8926563, 1.2334595, -1.8363037)
+mesh = SubResource("BoxMesh_pn7cn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=329321634]
+environment = ExtResource("1_843q2")
+
+[node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_5rfim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_r4wdr")]
