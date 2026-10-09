@@ -21,4 +21,9 @@ mesh = SubResource("TorusMesh_pn7cn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=32343983]
 shape = SubResource("SphereShape3D_7i0x0")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1105670375]
+light_color = Color(0.43137255, 1, 1, 1)
+omni_range = 2.0
+omni_attenuation = 0.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

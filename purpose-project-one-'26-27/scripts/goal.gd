@@ -1,6 +1,6 @@
-extends Area3D
+class_name Goal extends Area3D
 
-@export_file_path var next_level : String
+@export_file("*.tscn") var next_level : String
 signal goal_reached(next_level : String)
 
 

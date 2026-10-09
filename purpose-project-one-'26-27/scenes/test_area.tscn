@@ -58,4 +58,4 @@ environment = ExtResource("2_f0p7x")
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_vtm10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.491786, 0, -11.3769655)
-next_level = "res://scenes/level_one.tscn"
+next_level = "uid://cref300uwmmwn"

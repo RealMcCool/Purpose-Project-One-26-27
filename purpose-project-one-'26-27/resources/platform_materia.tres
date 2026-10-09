@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://j156es4sfk4y"]
+
+[resource]
+albedo_color = Color(0.45049998, 0.48097497, 0.53, 1)
+clearcoat_roughness = 1.0
+proximity_fade_distance = 0.01

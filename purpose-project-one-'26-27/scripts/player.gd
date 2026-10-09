@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody3D
 
-@export var walk_speed := 5.0
-@export var dash_speed := 8.0
+@export var walk_speed := 6.0
+@export var dash_speed := 10.0
 @export var jump_velocity := 6.0
 var last_velocity := Vector3.ZERO
 var max_camera_angle := 80.0
@@ -10,6 +10,8 @@ var can_dash := true
 @export var max_dashes := 1
 var dashes_left := max_dashes
 var can_move := true
+@export var air_friction := true
+#signal player_dashed
 
 
 func _ready() -> void:
@@ -47,7 +49,8 @@ func movement_inputs(delta: float) -> void:
 		#if is_on_floor() and movement_vector == Vector2.ZERO:
 			#velocity = Vector3.ZERO
 		velocity = velocity.limit_length(walk_speed)
-	velocity = velocity.move_toward(Vector3.ZERO,walk_speed*delta)
+	if air_friction:
+		velocity = velocity.move_toward(Vector3.ZERO,walk_speed*delta)
 	
 	if is_on_floor():
 		dashes_left = max_dashes
@@ -60,6 +63,8 @@ func movement_inputs(delta: float) -> void:
 func jump(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y = last_velocity.y + get_gravity().y*delta
+		if is_on_wall() and velocity.y < get_gravity().y:
+			velocity.y = get_gravity().y
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	if is_on_ceiling() or velocity.y == 0:
@@ -73,6 +78,7 @@ func dash(_delta: float) -> void:
 		velocity.x = dash_velocity.x
 		velocity.z = dash_velocity.z
 		velocity.y = dash_velocity.y
+		#player_dashed.emit()
 
 
 func get_direction_vector(include_y := true) -> Vector3:

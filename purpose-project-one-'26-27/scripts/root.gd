@@ -23,6 +23,6 @@ func switch_levels(new_level : String) -> void:
 
 func connect_goal_signal() -> void:
 	for i in get_tree().get_nodes_in_group("goal"):
-		if i.has_signal("goal_reached"):
+		if i is Goal:
 			if not i.goal_reached.is_connected(_on_goal_reached):
 				i.goal_reached.connect(_on_goal_reached)
