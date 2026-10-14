@@ -9,3 +9,4 @@ sky_material = SubResource("ProceduralSkyMaterial_sm5eh")
 background_mode = 2
 sky = SubResource("Sky_72wmq")
 ssao_enabled = true
+ssao_radius = 5.0

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c8tuxfpjost0n"]
+
+[ext_resource type="Script" uid="uid://bee65i7jhqm68" path="res://scripts/death_plane.gd" id="1_3pd6x"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7i0x0"]
+
+[node name="DeathPlane" type="Area3D" unique_id=1542292228]
+script = ExtResource("1_3pd6x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1127592703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.08941, 0)
+shape = SubResource("WorldBoundaryShape3D_7i0x0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

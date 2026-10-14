@@ -4,6 +4,9 @@
 [ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_63ct5"]
 [ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_5tayq"]
 [ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_c6gv3"]
+[ext_resource type="PackedScene" uid="uid://c8tuxfpjost0n" path="res://scenes/death_plane.tscn" id="5_c6gv3"]
+[ext_resource type="PackedScene" uid="uid://cbkyt1o3787kk" path="res://scenes/spawn_position.tscn" id="5_w53h0"]
+[ext_resource type="Script" uid="uid://28q516uxajlg" path="res://scripts/spawn_position.gd" id="6_623cv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pn7cn"]
 size = Vector3(2, 8, 70)
@@ -74,8 +77,8 @@ depth = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_843q2"]
 material = SubResource("StandardMaterial3D_pn7cn")
-text = "While midair,
-E to dash"
+text = "Press E
+to dash"
 depth = 0.0
 
 [node name="Level" type="Node3D" unique_id=987537332]
@@ -181,9 +184,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2012708, -59.938763)
 next_level = "uid://crs5qyfs8g8kg"
 
-[node name="SpawnPosition" type="Marker3D" parent="." unique_id=1028368212]
+[node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("5_w53h0")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("6_623cv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1367354628]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.0340486)
@@ -192,3 +196,7 @@ mesh = SubResource("TextMesh_7i0x0")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1279391835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.516005)
 mesh = SubResource("TextMesh_843q2")
+
+[node name="DeathPlane" parent="." unique_id=1542292228 instance=ExtResource("5_c6gv3")]
+collision_layer = 0
+collision_mask = 2
