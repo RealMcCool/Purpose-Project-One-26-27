@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c8tuxfpjost0n" path="res://scenes/death_plane.tscn" id="5_c6gv3"]
 [ext_resource type="PackedScene" uid="uid://cbkyt1o3787kk" path="res://scenes/spawn_position.tscn" id="5_w53h0"]
 [ext_resource type="Script" uid="uid://28q516uxajlg" path="res://scripts/spawn_position.gd" id="6_623cv"]
-[ext_resource type="Material" uid="uid://b8uajho8dbf4b" path="res://resources/void_material.tres" id="8_623cv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pn7cn"]
 size = Vector3(2, 28.739746, 70)
@@ -88,11 +87,8 @@ text = "Reach the goal
 to win the level"
 depth = 0.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_7i0x0"]
-material = ExtResource("8_623cv")
-size = Vector2(200, 200)
-
 [node name="Level" type="Node3D" unique_id=987537332]
+metadata/_edit_lock_ = true
 
 [node name="Terrain" type="StaticBody3D" parent="." unique_id=1425629007]
 
@@ -216,6 +212,4 @@ mesh = SubResource("TextMesh_623cv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
 collision_layer = 0
 collision_mask = 2
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="DeathPlane" unique_id=897045202]
-mesh = SubResource("PlaneMesh_7i0x0")
+metadata/_edit_lock_ = true

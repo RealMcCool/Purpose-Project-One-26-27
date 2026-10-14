@@ -122,7 +122,7 @@ offset_top = -2165.0
 offset_right = 741.0781
 offset_bottom = 1707.145
 rotation = 0.5235988
-color = Color(0, 0, 0, 1)
+color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=871067787]
 unique_name_in_owner = true

@@ -1,6 +1,7 @@
 [gd_resource type="Environment" format=3 uid="uid://cgh8robx0e8im"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sm5eh"]
+sky_energy_multiplier = 1.05
 
 [sub_resource type="Sky" id="Sky_72wmq"]
 sky_material = SubResource("ProceduralSkyMaterial_sm5eh")
