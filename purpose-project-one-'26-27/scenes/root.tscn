@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://npjpf04lowhs" path="res://scripts/root.gd" id="1_lrqlo"]
 [ext_resource type="PackedScene" uid="uid://bxkbr1s1w1hu3" path="res://scenes/gui.tscn" id="1_twpsu"]
-[ext_resource type="PackedScene" uid="uid://crs5qyfs8g8kg" path="res://scenes/test_area.tscn" id="3_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://cref300uwmmwn" path="res://scenes/levels/level_one.tscn" id="3_lrqlo"]
 
 [node name="Root" type="Node" unique_id=2074764658 groups=["root"]]
 script = ExtResource("1_lrqlo")
@@ -13,4 +13,4 @@ unique_name_in_owner = true
 [node name="Level" type="Node" parent="." unique_id=1064715952]
 unique_name_in_owner = true
 
-[node name="TestArea" parent="Level" unique_id=1625202741 instance=ExtResource("3_lrqlo")]
+[node name="Level" parent="Level" unique_id=987537332 instance=ExtResource("3_lrqlo")]

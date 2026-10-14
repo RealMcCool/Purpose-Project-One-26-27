@@ -27,6 +27,7 @@ window/stretch/aspect="expand"
 goal="Goal node"
 root=""
 player="Player node(s)"
+gui=""
 
 [input]
 

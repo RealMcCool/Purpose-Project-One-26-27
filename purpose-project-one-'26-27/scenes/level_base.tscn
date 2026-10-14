@@ -1,30 +1,39 @@
-[gd_scene format=3 uid="uid://egv4v1x1lbiu"]
+[gd_scene format=3 uid="uid://8pv4dulkgolc"]
 
-[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_548ah"]
-[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_osu2p"]
-[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_bkdr1"]
+[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_g7p6o"]
+[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_40ga3"]
+[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_ynct0"]
+[ext_resource type="PackedScene" uid="uid://cbkyt1o3787kk" path="res://scenes/spawn_position.tscn" id="4_w06h8"]
+[ext_resource type="Script" uid="uid://28q516uxajlg" path="res://scripts/spawn_position.gd" id="5_dq8h5"]
+[ext_resource type="PackedScene" uid="uid://c8tuxfpjost0n" path="res://scenes/death_plane.tscn" id="6_imdmy"]
+[ext_resource type="Material" uid="uid://b8uajho8dbf4b" path="res://resources/void_material.tres" id="7_morta"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_7i0x0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c7i5h"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_7i0x0"]
+material = ExtResource("7_morta")
+size = Vector2(200, 200)
 
 [node name="Level" type="Node3D" unique_id=987537332]
 
 [node name="Terrain" type="StaticBody3D" parent="." unique_id=1425629007]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain" unique_id=1130010477]
-mesh = SubResource("BoxMesh_7i0x0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=147719801]
-shape = SubResource("BoxShape3D_c7i5h")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=329321634]
-environment = ExtResource("1_548ah")
+environment = ExtResource("1_g7p6o")
 
-[node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_osu2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_40ga3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_bkdr1")]
+[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_ynct0")]
+next_level = "uid://crs5qyfs8g8kg"
 
-[node name="SpawnPosition" type="Marker3D" parent="." unique_id=1308580443]
+[node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("4_w06h8")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+script = ExtResource("5_dq8h5")
+
+[node name="DeathPlane" parent="." unique_id=1542292228 instance=ExtResource("6_imdmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="DeathPlane" unique_id=897045202]
+mesh = SubResource("PlaneMesh_7i0x0")

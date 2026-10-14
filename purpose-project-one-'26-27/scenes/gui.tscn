@@ -90,7 +90,7 @@ _data = {
 &"screen_transition_exit": SubResource("Animation_ynd5l")
 }
 
-[node name="GUI" type="Control" unique_id=1015823830]
+[node name="GUI" type="Control" unique_id=1015823830 groups=["gui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
