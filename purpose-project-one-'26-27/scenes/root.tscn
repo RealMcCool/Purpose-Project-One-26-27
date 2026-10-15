@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://npjpf04lowhs" path="res://scripts/root.gd" id="1_lrqlo"]
 [ext_resource type="PackedScene" uid="uid://bxkbr1s1w1hu3" path="res://scenes/gui.tscn" id="1_twpsu"]
-[ext_resource type="PackedScene" uid="uid://cref300uwmmwn" path="res://scenes/levels/level_one.tscn" id="3_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://cref300uwmmwn" path="res://scenes/levels/level_1.tscn" id="3_lrqlo"]
 
 [node name="Root" type="Node" unique_id=2074764658 groups=["root"]]
 script = ExtResource("1_lrqlo")

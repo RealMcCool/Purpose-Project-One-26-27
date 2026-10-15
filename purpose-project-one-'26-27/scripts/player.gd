@@ -55,7 +55,7 @@ func movement_inputs(delta: float) -> void:
 		velocity = velocity.limit_length(walk_speed)
 	elif velocity.direction_to(Vector3.ZERO).sign() != dash_direction.sign():
 		velocity += Vector3(movement_vector.x, 0, movement_vector.y)*dash_adjust_speed
-		velocity = velocity.limit_length(dash_length) 
+		velocity = velocity.limit_length(dash_length)
 	
 	
 	

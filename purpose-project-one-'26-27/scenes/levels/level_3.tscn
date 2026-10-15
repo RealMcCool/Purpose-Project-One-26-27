@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://blcsml3383h3n"]
 
-[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_87c5r"]
-[ext_resource type="Material" uid="uid://j156es4sfk4y" path="res://resources/platform_materia.tres" id="1_vmov0"]
-[ext_resource type="Material" uid="uid://nfg6mjlydlaa" path="res://resources/glass_material.tres" id="2_7s1bx"]
-[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_yguh4"]
-[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_crxtl"]
-[ext_resource type="PackedScene" uid="uid://cbkyt1o3787kk" path="res://scenes/spawn_position.tscn" id="4_s6t3g"]
-[ext_resource type="Script" uid="uid://28q516uxajlg" path="res://scripts/spawn_position.gd" id="5_oo7w2"]
-[ext_resource type="PackedScene" uid="uid://c8tuxfpjost0n" path="res://scenes/death_plane.tscn" id="6_l3r28"]
+[ext_resource type="Material" uid="uid://j156es4sfk4y" path="res://resources/platform_materia.tres" id="1_ugcn1"]
+[ext_resource type="Material" uid="uid://nfg6mjlydlaa" path="res://resources/glass_material.tres" id="2_pimnq"]
+[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="3_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="4_n6eey"]
+[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="5_qi5uv"]
+[ext_resource type="PackedScene" uid="uid://cbkyt1o3787kk" path="res://scenes/spawn_position.tscn" id="6_f6egh"]
+[ext_resource type="Script" uid="uid://28q516uxajlg" path="res://scripts/spawn_position.gd" id="7_t4txi"]
+[ext_resource type="PackedScene" uid="uid://c8tuxfpjost0n" path="res://scenes/death_plane.tscn" id="8_apo5x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7i0x0"]
-material = ExtResource("1_vmov0")
+material = ExtResource("1_ugcn1")
 size = Vector3(5, 1, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmov0"]
 size = Vector3(5, 1, 12)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pn7cn"]
-material = ExtResource("2_7s1bx")
+material = ExtResource("2_pimnq")
 size = Vector3(5, 13, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s1bx"]
@@ -27,7 +27,7 @@ size = Vector3(5, 13, 1)
 size = Vector3(5, 13, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vmov0"]
-material = ExtResource("2_7s1bx")
+material = ExtResource("2_pimnq")
 size = Vector3(1, 13, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s458d"]
@@ -37,7 +37,7 @@ size = Vector3(1, 13, 5)
 size = Vector3(1, 13, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_psxuq"]
-material = ExtResource("1_vmov0")
+material = ExtResource("1_ugcn1")
 size = Vector3(3, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4pegr"]
@@ -50,7 +50,7 @@ size = Vector3(3, 1, 3)
 size = Vector3(3, 1, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_72wmq"]
-material = ExtResource("1_vmov0")
+material = ExtResource("1_ugcn1")
 flip_faces = true
 size = Vector3(23, 28.294434, 17)
 
@@ -135,21 +135,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.147217, -6)
 shape = SubResource("ConcavePolygonShape3D_vmov0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=329321634]
-environment = ExtResource("1_87c5r")
+environment = ExtResource("3_2bnyt")
 
-[node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_yguh4")]
+[node name="Player" parent="." unique_id=417787551 instance=ExtResource("4_n6eey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_crxtl")]
+[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("5_qi5uv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-next_level = "uid://crs5qyfs8g8kg"
+next_level = "uid://dnj25csikbiw6"
 
-[node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("4_s6t3g")]
+[node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("6_f6egh")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-script = ExtResource("5_oo7w2")
+script = ExtResource("7_t4txi")
 
-[node name="DeathPlane" parent="." unique_id=1542292228 instance=ExtResource("6_l3r28")]
+[node name="DeathPlane" parent="." unique_id=1542292228 instance=ExtResource("8_apo5x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
 collision_layer = 0
 collision_mask = 2
