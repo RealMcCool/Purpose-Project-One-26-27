@@ -12,7 +12,7 @@ var can_dash := true
 var dashes_left := max_dashes
 var dash_length : float
 var dash_direction : Vector3
-var can_move := true
+@export var can_move := false
 @export var air_friction := false
 #signal player_dashed
 
@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		movement_inputs(delta)
 		mouse_inputs(delta)
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif Input.is_action_just_pressed("ui_select"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func mouse_inputs(delta: float) -> void:
@@ -35,10 +39,6 @@ func mouse_inputs(delta: float) -> void:
 		elif %CameraPivot.rotation_degrees.x >= max_camera_angle:
 			%CameraPivot.rotation_degrees.x = max_camera_angle
 		self.rotation.y += -Input.get_last_mouse_velocity().x * mouse_sensitivity * delta
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif Input.is_action_just_pressed("ui_select"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func movement_inputs(delta: float) -> void:

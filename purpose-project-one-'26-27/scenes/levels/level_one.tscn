@@ -186,6 +186,7 @@ environment = ExtResource("1_63ct5")
 
 [node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_5tayq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+can_move = true
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_c6gv3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2012708, -59.938763)

@@ -196,7 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("4_chx1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -31.5)
-next_level = "uid://cref300uwmmwn"
+next_level = "uid://blcsml3383h3n"
 
 [node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("5_oei0b")]
 unique_name_in_owner = true
