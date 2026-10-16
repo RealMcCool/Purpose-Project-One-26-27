@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://crpba0eylyi22"]
+
+[ext_resource type="Environment" uid="uid://cgh8robx0e8im" path="res://resources/simple_environment.tres" id="1_cynta"]
+[ext_resource type="Material" uid="uid://j156es4sfk4y" path="res://resources/platform_materia.tres" id="1_fsnos"]
+[ext_resource type="PackedScene" uid="uid://b8fj21aongq6f" path="res://scenes/player.tscn" id="2_ak5vt"]
+[ext_resource type="PackedScene" uid="uid://cx21ibklw82ym" path="res://scenes/goal.tscn" id="3_ij176"]
+[ext_resource type="PackedScene" uid="uid://cbkyt1o3787kk" path="res://scenes/spawn_position.tscn" id="4_uva14"]
+[ext_resource type="Script" uid="uid://28q516uxajlg" path="res://scripts/spawn_position.gd" id="5_vqwqk"]
+[ext_resource type="PackedScene" uid="uid://c8tuxfpjost0n" path="res://scenes/death_plane.tscn" id="6_1q3ip"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7i0x0"]
+material = ExtResource("1_fsnos")
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fsnos"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fsnos"]
+material = ExtResource("1_fsnos")
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mxx4w"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mxx4w"]
+material = ExtResource("1_fsnos")
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvoq0"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tqnj0"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dwyms"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pn7cn"]
+material = ExtResource("1_fsnos")
+flip_faces = true
+size = Vector3(10.475128, 31, 77.00593)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6xwso"]
+data = PackedVector3Array(5.2376, 15.5, 38.503, -5.2376, 15.5, 38.503, -5.2376, -15.5, 38.503, 5.2376, -15.5, 38.503, 5.2376, 15.5, 38.503, -5.2376, -15.5, 38.503, -5.2376, 15.5, -38.503, 5.2376, 15.5, -38.503, 5.2376, -15.5, -38.503, -5.2376, -15.5, -38.503, -5.2376, 15.5, -38.503, 5.2376, -15.5, -38.503, 5.2376, 15.5, -38.503, 5.2376, 15.5, 38.503, 5.2376, -15.5, 38.503, 5.2376, -15.5, -38.503, 5.2376, 15.5, -38.503, 5.2376, -15.5, 38.503, -5.2376, 15.5, 38.503, -5.2376, 15.5, -38.503, -5.2376, -15.5, -38.503, -5.2376, -15.5, 38.503, -5.2376, 15.5, 38.503, -5.2376, -15.5, -38.503, -5.2376, 15.5, 38.503, 5.2376, 15.5, 38.503, 5.2376, 15.5, -38.503, -5.2376, 15.5, -38.503, -5.2376, 15.5, 38.503, 5.2376, 15.5, -38.503, 5.2376, -15.5, 38.503, -5.2376, -15.5, 38.503, -5.2376, -15.5, -38.503, 5.2376, -15.5, -38.503, 5.2376, -15.5, 38.503, -5.2376, -15.5, -38.503)
+
+[node name="Level" type="Node3D" unique_id=987537332]
+metadata/_edit_lock_ = true
+
+[node name="Terrain" type="StaticBody3D" parent="." unique_id=1425629007]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain" unique_id=645697987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_7i0x0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Terrain" unique_id=589690384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_fsnos")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Terrain" unique_id=243951298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -1, -18)
+mesh = SubResource("BoxMesh_fsnos")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Terrain" unique_id=1660590198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -1, -18)
+shape = SubResource("BoxShape3D_mxx4w")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Terrain" unique_id=297984686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -54)
+mesh = SubResource("BoxMesh_mxx4w")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Terrain" unique_id=398664510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -54)
+shape = SubResource("BoxShape3D_vvoq0")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Terrain" unique_id=1793483749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -72)
+mesh = SubResource("BoxMesh_mxx4w")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Terrain" unique_id=1702728587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -72)
+shape = SubResource("BoxShape3D_tqnj0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Terrain" unique_id=1247991843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -36)
+mesh = SubResource("BoxMesh_fsnos")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1626380992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -36)
+shape = SubResource("BoxShape3D_dwyms")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Terrain" unique_id=1978707367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7453766, 0.288, -35.996864)
+mesh = SubResource("BoxMesh_pn7cn")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Terrain" unique_id=1970863249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7453766, 0.288, -35.996864)
+shape = SubResource("ConcavePolygonShape3D_6xwso")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=329321634]
+environment = ExtResource("1_cynta")
+
+[node name="Player" parent="." unique_id=417787551 instance=ExtResource("2_ak5vt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_ij176")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -72)
+next_level = "uid://crs5qyfs8g8kg"
+
+[node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("4_uva14")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+script = ExtResource("5_vqwqk")
+
+[node name="DeathPlane" parent="." unique_id=1542292228 instance=ExtResource("6_1q3ip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_lock_ = true

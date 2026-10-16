@@ -141,7 +141,7 @@ environment = ExtResource("3_2bnyt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("5_qi5uv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
 next_level = "uid://dnj25csikbiw6"
 
 [node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("6_f6egh")]

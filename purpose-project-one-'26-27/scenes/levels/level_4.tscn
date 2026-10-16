@@ -161,7 +161,7 @@ environment = ExtResource("1_qlnma")
 
 [node name="Goal" parent="." unique_id=32760402 instance=ExtResource("3_t0tbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
-next_level = "uid://crs5qyfs8g8kg"
+next_level = "uid://crpba0eylyi22"
 
 [node name="SpawnPosition" parent="." unique_id=327354207 instance=ExtResource("4_krb5l")]
 unique_name_in_owner = true
