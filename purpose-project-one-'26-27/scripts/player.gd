@@ -2,7 +2,7 @@ class_name Player extends CharacterBody3D
 
 @export var walk_speed := 6.0
 @export var dash_speed := 10.0
-@export var dash_adjust_speed := 0.25
+@export var dash_adjust_speed := 0.2
 @export var jump_velocity := 6.0
 var last_velocity := Vector3.ZERO
 var max_camera_angle := 80.0
@@ -11,7 +11,8 @@ var can_dash := true
 @export var max_dashes := 1
 var dashes_left := max_dashes
 var dash_length : float
-var dash_direction : Vector3
+var dash_direction : float
+#var dash_direction : Vector3
 @export var can_move := false
 @export var air_friction := false
 #signal player_dashed
@@ -45,18 +46,12 @@ func movement_inputs(delta: float) -> void:
 	var movement_vector = Input.get_vector("left", "right", "forward", "backward").normalized()
 	movement_vector = movement_vector.rotated(-self.rotation.y)
 	velocity = Vector3(last_velocity.x, 0, last_velocity.z)
-	
-	#print(velocity.direction_to(Vector3.ZERO).sign(), " vs. ", dash_direction.sign())
 	if dashes_left == max_dashes:
 		velocity = velocity.move_toward(Vector3.ZERO,walk_speed) # Multiply by delta for better deceleration?
 		velocity += Vector3(movement_vector.x, 0, movement_vector.y)*walk_speed
-		#if is_on_floor() and movement_vector == Vector2.ZERO:
-			#velocity = Vector3.ZERO
 		velocity = velocity.limit_length(walk_speed)
-	elif velocity.direction_to(Vector3.ZERO).sign() != dash_direction.sign():
-		velocity += Vector3(movement_vector.x, 0, movement_vector.y)*dash_adjust_speed
-		velocity = velocity.limit_length(dash_length)
-	
+	else:
+		adjust_dash_midair(delta)
 	
 	
 	if air_friction:
@@ -88,9 +83,21 @@ func dash(_delta: float) -> void:
 		velocity.x = dash_velocity.x
 		velocity.z = dash_velocity.z
 		velocity.y = dash_velocity.y
-		dash_direction = Vector3(dash_velocity.x, 0, dash_velocity.z).normalized()
+		dash_direction = self.rotation.y
 		dash_length = Vector3(dash_velocity.x, 0, dash_velocity.z).length()
 		#player_dashed.emit()
+
+
+func adjust_dash_midair(_delta: float) -> void:
+	velocity = velocity.rotated(Vector3(0,1,0), -dash_direction)
+	if Input.is_action_pressed("backward"):
+		velocity.z = min(velocity.z+dash_adjust_speed,0)
+	if Input.is_action_pressed("left"):
+		velocity.x -= 5*dash_adjust_speed
+	if Input.is_action_pressed("right"):
+		velocity.x += 5*dash_adjust_speed
+	velocity.x = clampf(velocity.x, -10*dash_adjust_speed, 10*dash_adjust_speed)
+	velocity = velocity.rotated(Vector3(0,1,0), dash_direction)
 
 
 func get_direction_vector(include_y := true) -> Vector3:
