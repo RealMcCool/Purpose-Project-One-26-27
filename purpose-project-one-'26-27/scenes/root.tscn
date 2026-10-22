@@ -3,14 +3,24 @@
 [ext_resource type="Script" uid="uid://npjpf04lowhs" path="res://scripts/root.gd" id="1_lrqlo"]
 [ext_resource type="PackedScene" uid="uid://bxkbr1s1w1hu3" path="res://scenes/gui.tscn" id="1_twpsu"]
 [ext_resource type="PackedScene" uid="uid://cref300uwmmwn" path="res://scenes/levels/level_1.tscn" id="3_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://dyuovaf0vmggg" path="res://scenes/title_screen.tscn" id="4_jh1ax"]
+[ext_resource type="PackedScene" uid="uid://cafenymuj5273" path="res://scenes/level_select_screen.tscn" id="5_kycxp"]
 
 [node name="Root" type="Node" unique_id=2074764658 groups=["root"]]
 script = ExtResource("1_lrqlo")
 
-[node name="GUI" parent="." unique_id=1015823830 instance=ExtResource("1_twpsu")]
-unique_name_in_owner = true
-
-[node name="Level" type="Node" parent="." unique_id=1064715952]
+[node name="Level" type="Node" parent="." unique_id=1064715952 groups=["menu_type"]]
 unique_name_in_owner = true
 
 [node name="Level" parent="Level" unique_id=987537332 instance=ExtResource("3_lrqlo")]
+
+[node name="GUI" parent="." unique_id=1015823830 groups=["menu_type"] instance=ExtResource("1_twpsu")]
+unique_name_in_owner = true
+
+[node name="TitleScreen" parent="." unique_id=893422276 groups=["menu_type"] instance=ExtResource("4_jh1ax")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LevelSelectScreen" parent="." unique_id=698501636 groups=["menu_type"] instance=ExtResource("5_kycxp")]
+unique_name_in_owner = true
+visible = false

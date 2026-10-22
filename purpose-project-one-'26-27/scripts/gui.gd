@@ -1,4 +1,4 @@
-extends Control
+class_name GUI extends Control
 
 
 #var scores : Dictionary
@@ -23,6 +23,7 @@ func _on_goal_reached(_next_level : String) -> void:
 		if i is Player:
 			i.can_move = true
 	connect_goal_signal()
+
 
 func connect_goal_signal() -> void:
 	for i in get_tree().get_nodes_in_group("goal"):

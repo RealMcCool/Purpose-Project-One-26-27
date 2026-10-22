@@ -47,7 +47,7 @@ func movement_inputs(delta: float) -> void:
 	movement_vector = movement_vector.rotated(-self.rotation.y)
 	velocity = Vector3(last_velocity.x, 0, last_velocity.z)
 	if dashes_left == max_dashes:
-		velocity = velocity.move_toward(Vector3.ZERO,walk_speed) # Multiply by delta for better deceleration?
+		velocity = velocity.move_toward(Vector3.ZERO,walk_speed)
 		velocity += Vector3(movement_vector.x, 0, movement_vector.y)*walk_speed
 		velocity = velocity.limit_length(walk_speed)
 	else:

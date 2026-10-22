@@ -6,6 +6,25 @@ signal goal_reached(next_level : String)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
+		
+		#MAKE SURE TO SAVE/LOAD DATA?
+		"""
+	@export_global_dir var save_data_path := "user://save_data.tres"
+	@export var save_data : SaveData
+	
+	func save() -> void:
+		ResourceSaver.save(save_data, save_data_path)
+	
+	func load() -> void:
+		#print("loading")
+		inventory = ResourceLoader.load(inventory_path)
+		stats = ResourceLoader.load(stats_path)
+		if inventory == null:
+			inventory = load("res://assets/default_inventory.tres")
+		#print("loaded")
+		"""
+		
+		
 		goal_reached.emit(next_level)
 		body.can_move = false
 

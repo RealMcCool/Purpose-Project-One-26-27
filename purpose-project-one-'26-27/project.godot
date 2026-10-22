@@ -28,6 +28,11 @@ goal="Goal node"
 root=""
 player="Player node(s)"
 gui=""
+menu_type=""
+
+[gui]
+
+theme/custom="uid://5aqms4axil10"
 
 [input]
 

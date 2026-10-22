@@ -116,6 +116,7 @@ rotation = 0.7853982
 
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=967746890]
 visible = false
+z_index = 2
 layout_mode = 0
 offset_left = -2540.0
 offset_top = -2165.0

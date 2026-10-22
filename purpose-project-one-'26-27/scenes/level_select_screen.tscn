@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cafenymuj5273"]
+
+[ext_resource type="PackedScene" uid="uid://c28x774wwjj23" path="res://scenes/level_select_button.tscn" id="1_0emvf"]
+[ext_resource type="Script" uid="uid://cqvaqvj6tvsxy" path="res://scripts/level_select_screen.gd" id="1_64dgw"]
+
+[node name="LevelSelectScreen" type="Control" unique_id=698501636]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64dgw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1141069661]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.16078432, 0.39215687, 0.5058824, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=750753621]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=137801220]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="LevelOne" parent="VBoxContainer/HBoxContainer" unique_id=639235935 instance=ExtResource("1_0emvf")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "1"
+level = "uid://cref300uwmmwn"
+
+[node name="LevelTwo" parent="VBoxContainer/HBoxContainer" unique_id=879234419 instance=ExtResource("1_0emvf")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "2"
+level = "uid://dyv335ee2xnlp"
+
+[node name="LevelThree" parent="VBoxContainer/HBoxContainer" unique_id=1901107308 instance=ExtResource("1_0emvf")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "3"
+level = "uid://blcsml3383h3n"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=747558328]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="LevelFour" parent="VBoxContainer/HBoxContainer2" unique_id=136055438 instance=ExtResource("1_0emvf")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "4"
+level = "uid://dnj25csikbiw6"
+
+[node name="LevelFive" parent="VBoxContainer/HBoxContainer2" unique_id=1479859604 instance=ExtResource("1_0emvf")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "5"
+level = "uid://crpba0eylyi22"
